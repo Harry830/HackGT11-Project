@@ -1,0 +1,14 @@
+flask
+openai
+hnswlib
+numpy
+pandas
+langchain
+python-dotenv
+python-docx
+PyPDF2
+docx2txt
+Flask-Login
+Flask-Session
+Werkzeug
+langchain-community

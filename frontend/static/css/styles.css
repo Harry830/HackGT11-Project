@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    background-color: #343541;
+    color: #ececec;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.sidebar {
+    width: 250px;
+    min-width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.chat-box {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.message.user .text {
+    margin-left: auto;
+    background-color: #3a3b3c;
+    color: #ececec;
+}
+
+.message.assistant .text {
+    margin-right: auto;
+    background-color: #40414f;
+    color: #ececec;
+}
+
+.message .text {
+    max-width: 80%;
+    padding: 12px 20px;
+    border-radius: 8px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.input-group {
+    background-color: #40414f;
+}
+
+.input-group .form-control {
+    background-color: transparent;
+    border: none;
+    color: #ececec;
+}
+
+.input-group .form-control:focus {
+    box-shadow: none;
+}
+
+.input-group .btn {
+    border: none;
+}
+
+.modal-content {
+    background-color: #343541;
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
+
+.btn-close-white {
+    filter: invert(1);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2e2f38;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4b4d5a;
+    border-radius: 4px;
+}
+
+/* Accordion Styles */
+.accordion-button {
+    background-color: #343541;
+    color: #ececec;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #ececec;
+    background-color: #40414f;
+}
+
+.accordion-item {
+    border: none;
+}
+
+.accordion-header {
+    border-bottom: 1px solid #4b4d5a;
+}
+
+.accordion-body {
+    background-color: #343541;
+    color: #ececec;
+    padding: 0;
+}
+
+.list-group-item {
+    background-color: #343541;
+    color: #ececec;
+    border: none;
+    padding: 10px 15px;
+}
+
+.list-group-item + .list-group-item {
+    border-top: 1px solid #4b4d5a;
+}
