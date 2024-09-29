@@ -15,9 +15,9 @@ import openai
 from flask import Flask, request, jsonify, render_template
 from werkzeug.utils import secure_filename
 
-# ==========================
+
 # Configuration and Setup
-# ==========================
+
 
 # Load environment variables from the .env file
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -49,17 +49,14 @@ ALLOWED_EXTENSIONS = {'txt', 'pdf', 'doc', 'docx', 'xlsx', 'csv'}
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
-# ==========================
+
 # Helper Functions
-# ==========================
 
 def allowed_file(filename):
     """Check if the file has an allowed extension."""
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-# ==========================
 # Indexer Class
-# ==========================
+
 
 class Indexer:
     def __init__(self, embedding_dim=1536, num_elements=100000, M=64, ef_construction=400, ef=300):
@@ -251,7 +248,7 @@ class Indexer:
 
         try:
             response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",  # Use "gpt-4" if you have access
+                model="gpt-3.5-turbo",  
                 messages=messages,
                 max_tokens=500,  # Limit the answer length
                 temperature=0.7,
@@ -279,9 +276,9 @@ class Indexer:
             self.documents = pickle.load(f)
         print("Index and documents loaded from disk.")
 
-# ==========================
+
 # Initialize Indexer and Index Documents
-# ==========================
+
 
 indexer = Indexer()
 folder_path = UPLOAD_FOLDER
@@ -298,9 +295,9 @@ else:
     indexer.embed_and_index()
     indexer.save_index_and_documents(index_file, documents_file)
 
-# ==========================
+
 # Flask Routes
-# ==========================
+
 
 @app.route('/')
 def home():
@@ -384,9 +381,9 @@ def add_scenario():
         print(f"Error saving new scenario: {e}")
         return jsonify({"response": "Error adding new scenario."}), 500
 
-# ==========================
+
 # Run the Flask App
-# ==========================
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
